@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Chat App</title>
+</head>
+<body>
+<h1>Welcome to chat room{{ room }}</h1>
+<div id="messages"></div>
+<form>
+    <input type="text" placeholder="Enter your message here">
+    <button type="submit">Send</button>
+</form>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.2/socket.io.js"></script>
+<script>
+    const socket = io.connect("https://127.0.0.1:5000");
+    socket.on('connect', function() {
+        socket.emit('join_room',{
+            username: "{{username}}",
+            room: "{{ room}}"
+        }) 
+    })
+</script>
+</html>

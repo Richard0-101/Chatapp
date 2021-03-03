@@ -1,0 +1,15 @@
+flask
+flask-socketio
+eventlet
+
+
+--------------------------------------
+
+    ;
+    socket.on('join_room_announcement', function (data) {
+        console.log(data);
+        const newNode = document.createElement('div')
+        newNode.innerHTML= '${data.username} has joined the room';
+        document.getElementById('messages').appendChild(newNode);
+    })
+  
